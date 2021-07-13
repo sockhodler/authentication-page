@@ -160,6 +160,7 @@ export default class AuthPage extends Vue {
           letter-spacing: 0.5px;
         }
         .value {
+          @include truncate();
           font-family: 'Roboto Mono';
           font-size: 12px;
           text-align: right;
