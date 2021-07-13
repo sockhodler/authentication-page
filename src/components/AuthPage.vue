@@ -44,7 +44,7 @@
         </div>
         <div class="row align-items-center justify-content-between">
           <div class="key col-5 p-0">Contract Address</div>
-          <div class="value col-7 p-0">19emjx4vqHPn6ZTish</div>
+          <div class="value col-7 p-0">19emjx4vqHPn6ZTish332423</div>
         </div>
       </div>
 
