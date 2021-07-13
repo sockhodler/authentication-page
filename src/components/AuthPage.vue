@@ -16,7 +16,7 @@
         Authenticated
         <img src="@/assets/icons/question-dark.svg" alt="Question">
       </h2>
-      <p class="message">Here is where we can have the error message on this screen and the next action</p>
+      <p class="message text-muted">Here is where we can have the error message on this screen and the next action</p>
     </div>
 
     <!-- status box -->
@@ -27,7 +27,7 @@
       </div>
 
       <h1 class="item">Nike AirMax 2021</h1>
-      <p class="description">Lorem ipsum dolor sit amet, r sit amet, consectetur adipis cing ipsum dolor sit amet, r sit amet, consectetur adipis cing elit ut aliquam, purus sit.m, ipsum dolor sit amet, r sit amet, consectetur adipis cing elit ut aliquam, purus sit.m, elit ut aliquam, purus sit.m, purus</p>
+      <p class="description text-muted">Lorem ipsum dolor sit amet, r sit amet, consectetur adipis cing ipsum dolor sit amet, r sit amet, consectetur adipis cing elit ut aliquam, purus sit.m, ipsum dolor sit amet, r sit amet, consectetur adipis cing elit ut aliquam, purus sit.m, elit ut aliquam, purus sit.m, purus</p>
 
       <div class="d-flex align-items-center justify-content-between">
         <div class="key">UID</div>
@@ -48,7 +48,7 @@
     </div>
 
     <!-- button -->
-    <a href="" class="button blue">Redeem NFT</a>
+    <a href="" class="btn btn-blue">Redeem NFT</a>
 
     <!-- copyright -->
     <div class="__copyright">Powered by <strong>SmartSeal</strong></div>
@@ -65,20 +65,35 @@ export default class AuthPage extends Vue {
 </script>
 
 <style scoped lang="scss">
+  @import '@/assets/styles/base';
+
   .auth-page {
     padding: 10px 20px;
     color: white;
     background: #18182F;
+    border-radius: 20px 20px 0 0;
     .__header {
       text-align: center;
     }
     .__status-box {
+      margin-bottom: 14px;
       padding: 20px;
-      background: linear-gradient(180deg, #313450 0%, rgba(49, 52, 80, 0.5) 100%);
+      background: $gradient-evening;
       border-radius: 24px;
     }
     .__copyright {
+      margin-top: 14px;
       text-align: center;
+      color: $gray;
+      strong {
+        color: white;
+      }
+    }
+
+    .btn-blue {
+      width: 100%;
+      color: white;
+      background: $blue;
     }
   }
 </style>
