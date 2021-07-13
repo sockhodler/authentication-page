@@ -28,7 +28,7 @@
         </div>
 
         <h1 class="item">Nike AirMax 2021</h1>
-        <p class="description text-muted">Lorem ipsum dolor sit amet, r sit amet, consectetur adipis cing ipsum dolor sit amet, r sit amet, consectetur adipis cing elit ut aliquam, purus sit.m, ipsum dolor sit amet, r sit amet, consectetur adipis cing elit ut aliquam, purus sit.m, elit ut aliquam, purus sit.m, purus</p>
+        <p class="description text-muted" @click="readMore = !readMore" :class="!readMore ? 'show' : ''">Lorem ipsum dolor sit amet, r sit amet, consectetur adipis cing ipsum dolor sit amet, r sit amet, consectetur adipis cing elit ut aliquam, purus sit.m, ipsum dolor sit amet, r sit amet, consectetur adipis cing elit ut aliquam, purus sit.m, elit ut aliquam, purus sit.m, purus</p>
 
         <div class="row align-items-center justify-content-between">
           <div class="key col-5 p-0">UID</div>
@@ -62,7 +62,11 @@ import { Component, Prop, Vue } from 'vue-property-decorator';
 
 @Component
 export default class AuthPage extends Vue {
-  @Prop() private msg!: string;
+  public data() {
+    return {
+      readMore: false,
+    };
+  }
 }
 </script>
 
@@ -72,12 +76,24 @@ export default class AuthPage extends Vue {
   .auth-page-wrapper {
     position: fixed;
     bottom: -1px;
+
+    // Overlay
+    &::before {
+      content: '';
+      display: inline-block;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.5);
+    }
+
     .auth-page {
       position: relative;
-
       padding: 10px 20px;
       color: white;
-      background: #18182F;
+      background: $midnight;
       border-radius: 20px 20px 0 0;
       .btn-close {
         position: absolute;
@@ -88,7 +104,7 @@ export default class AuthPage extends Vue {
         text-align: center;
         margin-bottom: 20px;
         .status-icon {
-          margin: -25px 0;
+          margin: -15px 0 -25px;
         }
         .title {
           img {
@@ -124,7 +140,19 @@ export default class AuthPage extends Vue {
         .description {
           margin-bottom: 20px;
           font-size: 12px;
-          line-height: 150%;
+          line-height: 18px;
+          &::after {
+              content: 'less';
+              display: inline;
+              margin-left: 5px;
+              color: white;
+            }
+          &.show {
+            @include truncateBlock(12px, 1.6, 2);
+            &::after {
+              content: 'more';
+            }
+          }
         }
         > .row { margin: 7px 0; }
         .key {
