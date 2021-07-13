@@ -12,17 +12,38 @@
     <!-- icon header -->
     <div class="__header">
       <img src="@/assets/icons/status-success.svg" alt="Success">
-      <h2>
+      <h2 class="title">
         Authenticated
         <img src="@/assets/icons/question-dark.svg" alt="Question">
       </h2>
+      <p class="message">Here is where we can have the error message on this screen and the next action</p>
     </div>
 
     <!-- status box -->
     <div class="__status-box">
-      <div class="d-flex justify-content-between">
-        <span>apple</span>
-        <span>apple</span>
+      <div class="d-flex align-items-center justify-content-between">
+        <span class="tag">Status</span>
+        <img src="@/assets/icons/check-white.svg" alt="Checked">
+      </div>
+
+      <h1 class="item">Nike AirMax 2021</h1>
+      <p class="description">Lorem ipsum dolor sit amet, r sit amet, consectetur adipis cing ipsum dolor sit amet, r sit amet, consectetur adipis cing elit ut aliquam, purus sit.m, ipsum dolor sit amet, r sit amet, consectetur adipis cing elit ut aliquam, purus sit.m, elit ut aliquam, purus sit.m, purus</p>
+
+      <div class="d-flex align-items-center justify-content-between">
+        <div class="key">UID</div>
+        <div class="value">58210384172032</div>
+      </div>
+      <div class="d-flex align-items-center justify-content-between">
+        <div class="key">Token ID</div>
+        <div class="value">0acf77d4-b486-4c99</div>
+      </div>
+      <div class="d-flex align-items-center justify-content-between">
+        <div class="key">Owner Address</div>
+        <div class="value">19emjx4vqHPn6ZTish</div>
+      </div>
+      <div class="d-flex align-items-center justify-content-between">
+        <div class="key">Contract Address</div>
+        <div class="value">19emjx4vqHPn6ZTish</div>
       </div>
     </div>
 
