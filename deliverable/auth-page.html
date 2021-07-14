@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&display=swap" />
+    <link rel="stylesheet" href="./assets/styles/base.css">
+    <title>Authentication | SmartSeal</title>
+  </head>
+  <body>
+    <div class="auth-page-wrapper">
+      <div class="auth-page">
+        <!-- close icon -->
+        <img src="./assets/icons/close-gray.svg" class="btn-close" alt="Close">
+  
+        <!-- loading screen -->
+        <div class="__loading">
+  
+        </div>
+  
+        <!-- icon header -->
+        <div class="__header">
+          <img src="./assets/icons/status-success.svg" class="status-icon" alt="Success">
+          <h2 class="title">
+            Authenticated
+            <img src="./assets/icons/question-dark.svg" alt="Question">
+          </h2>
+          <p class="message text-muted m-0">Here is where we can have the error message on this screen and the next action</p>
+        </div>
+  
+        <!-- status box -->
+        <div class="__status-box">
+          <div class="d-flex align-items-center justify-content-between">
+            <span class="tag">Status</span>
+            <img src="./assets/icons/check-white.svg" alt="Checked">
+          </div>
+  
+          <h1 class="item">Nike AirMax 2021</h1>
+          <p class="description text-muted" @click="readMore = !readMore" :class="!readMore ? 'show' : ''">Lorem ipsum dolor sit amet, r sit amet, consectetur adipis cing ipsum dolor sit amet, r sit amet, consectetur adipis cing elit ut aliquam, purus sit.m, ipsum dolor sit amet, r sit amet, consectetur adipis cing elit ut aliquam, purus sit.m, elit ut aliquam, purus sit.m, purus</p>
+  
+          <div class="row align-items-center justify-content-between">
+            <div class="key col-5 p-0">UID</div>
+            <div class="value col-7 p-0">58210384172032</div>
+          </div>
+          <div class="row align-items-center justify-content-between">
+            <div class="key col-5 p-0">Token ID</div>
+            <div class="value col-7 p-0">0acf77d4-b486-4c99</div>
+          </div>
+          <div class="row align-items-center justify-content-between">
+            <div class="key col-5 p-0">Owner Address</div>
+            <div class="value col-7 p-0">19emjx4vqHPn6ZTish</div>
+          </div>
+          <div class="row align-items-center justify-content-between">
+            <div class="key col-5 p-0">Contract Address</div>
+            <div class="value col-7 p-0">19emjx4vqHPn6ZTish332423</div>
+          </div>
+        </div>
+  
+        <!-- button -->
+        <a href="" class="btn btn-blue">Redeem NFT</a>
+  
+        <!-- copyright -->
+        <div class="__copyright">Powered by <strong>SmartSeal</strong></div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -28,7 +28,7 @@
         </div>
 
         <h1 class="item">Nike AirMax 2021</h1>
-        <p class="description text-muted" @click="readMore = !readMore" :class="!readMore ? 'show' : ''">Lorem ipsum dolor sit amet, r sit amet, consectetur adipis cing ipsum dolor sit amet, r sit amet, consectetur adipis cing elit ut aliquam, purus sit.m, ipsum dolor sit amet, r sit amet, consectetur adipis cing elit ut aliquam, purus sit.m, elit ut aliquam, purus sit.m, purus</p>
+        <p class="description text-muted" @click="readMore = !readMore" :class="!readMore ? 'hide' : ''">Lorem ipsum dolor sit amet, r sit amet, consectetur adipis cing ipsum dolor sit amet, r sit amet, consectetur adipis cing elit ut aliquam, purus sit.m, ipsum dolor sit amet, r sit amet, consectetur adipis cing elit ut aliquam, purus sit.m, elit ut aliquam, purus sit.m, purus</p>
 
         <div class="row align-items-center justify-content-between">
           <div class="key col-5 p-0">UID</div>
@@ -142,12 +142,12 @@ export default class AuthPage extends Vue {
           font-size: 12px;
           line-height: 18px;
           &::after {
-              content: 'less';
-              display: inline;
-              margin-left: 5px;
-              color: white;
-            }
-          &.show {
+            content: 'less';
+            display: inline;
+            margin-left: 5px;
+            color: white;
+          }
+          &.hide {
             @include truncateBlock(12px, 1.6, 2);
             &::after {
               content: 'more';
