@@ -175,7 +175,7 @@ div, p {
   margin-left: 5px;
   color: white;
 }
-.auth-page-wrapper .auth-page .__status-box .description.show::after {
+.auth-page-wrapper .auth-page .__status-box .description.hide::after {
   content: 'more';
 }
 .auth-page-wrapper .auth-page .__status-box > .row {
