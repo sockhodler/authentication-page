@@ -202,8 +202,12 @@ div, p {
   text-align: center;
   color: var(--theme-gray);
 }
+.auth-page-wrapper .auth-page .__copyright a {
+  color: var(--theme-gray);
+}
 .auth-page-wrapper .auth-page .__copyright strong {
   color: white;
+  font-weight: 500;
 }
 .auth-page-wrapper .auth-page .btn-blue {
   width: 100%;

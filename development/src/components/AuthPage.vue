@@ -52,7 +52,9 @@
       <a href="" class="btn btn-blue">Redeem NFT</a>
 
       <!-- copyright -->
-      <div class="__copyright">Powered by <strong>SmartSeal</strong></div>
+      <div class="__copyright">
+        <a href="https://www.smartseal.io/" target="_blank">Powered by <strong>SmartSeal</strong></a>
+      </div>
     </div>
   </div>
 </template>
@@ -171,9 +173,10 @@ export default class AuthPage extends Vue {
       .__copyright {
         margin-top: 14px;
         text-align: center;
-        color: $gray;
+        a { color: $gray; }
         strong {
           color: white;
+          font-weight: 500;
         }
       }
 
