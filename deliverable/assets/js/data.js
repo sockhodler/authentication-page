@@ -120,16 +120,6 @@ async function getTagData(variable) {
   // console.log(data);
   data = JSON.parse(data);
   console.log(data);
-  var boilerplate = "-Tag Information-";
-  var newline = "<br />";
-  var str = boilerplate.concat(newline, "Authentication Status: ", data.message,
-    newline, "Product: ", data.tag.product_name,
-    newline, "UID: ", data.tag.uid,
-    newline, "NFT Contract Address: ", data.tag.nft_contract_address,
-    newline, "NFT Token ID: ", data.tag.nft_token_id,
-    newline, "NFT Owner Address: ", data.tag.nft_owner_address.
-    newline);
-  // document.getElementById("main").innerHTML = str;
   switch (data.scan.auth_stat) {
     case 0:
       console.log('0');
