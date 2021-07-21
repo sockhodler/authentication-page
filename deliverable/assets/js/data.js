@@ -117,7 +117,7 @@ async function getTagData(variable) {
     body: JSON.stringify(variable)
   });
   let data = await response.text();
-  console.log(data);
+  // console.log(data);
   data = JSON.parse(data);
   console.log(data);
   var boilerplate = "-Tag Information-";
@@ -130,6 +130,57 @@ async function getTagData(variable) {
     newline, "NFT Owner Address: ", data.tag.nft_owner_address.
     newline);
   // document.getElementById("main").innerHTML = str;
+  switch (data.scan.auth_stat) {
+    case 0:
+      console.log('0');
+      var statusIcon = "./assets/icons/status-error.svg";
+      var statusType = 'Error'
+      var statusMessage = 'There was a problem authenticating this tag. Please contact info@smartseal.io for more information';
+      break;
+    case 1:
+      console.log('1');
+      var statusIcon = "..icassets/ons/status-success.svg";
+      var statusType = 'Authenticated'
+      break;
+    case 2:
+      console.log('2');
+      var statusIcon = "..icassets/ons/status-success.svg";
+      var statusType = 'Authenticated and Sealed'
+      break;
+    case 3:
+      console.log('3');
+      var statusIcon = "..icassets/ons/status-success.svg";
+      var statusType = 'Authenticated and Unsealed'
+      break;
+    case 4:
+      console.log('4');
+      var statusIcon = "..icassets/ons/status-warning.svg";
+      var statusType = 'Authentication Token Expired'
+      var statusMessage = 'Please rescan tag';
+      break;
+    case 5:
+      console.log('5');
+      var statusIcon = "./assets/icons/status-error.svg";
+      var statusType = 'Tag Not Active'
+      var statusMessage = 'Here is where we can have the error message on this screen and the next action';
+      break;
+    case 6:
+      console.log('6');
+      var statusIcon = "./assets/icons/status-error.svg";
+      var statusType = 'Tag Not Active'
+      var statusMessage = 'Here is where we can have the error message on this screen and the next action';
+      break;
+    case 7:
+      console.log('7');
+      var statusIcon = "./assets/icons/status-error.svg";
+      var statusType = 'Authentication Code Not Valid'
+      var statusMessage = 'Here is where we can have the error message on this screen and the next action';
+      break;
+  }
+  document.getElementById('status-icon').src = statusIcon;
+  document.getElementById('status-type').innerText = statusType;
+  if (statusMessage !== '')
+    document.getElementById('status-message').innerHtml = statusMessage;
   bind(data, document.querySelector(".auth-page"));
   return data;
 }
