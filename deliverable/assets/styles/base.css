@@ -117,13 +117,14 @@ div, p {
 }
 
 /* __Status box */
-.auth-page-wrapper .auth-page .__status-box {
+.auth-page-wrapper .auth-page #__status-box {
+  display: none;
   margin-bottom: 14px;
   padding: 20px;
   background: var(--theme-gradient-evening);
   border-radius: 24px;
 }
-.auth-page-wrapper .auth-page .__status-box .tag {
+.auth-page-wrapper .auth-page #__status-box .tag {
   padding: 6px 12px;
   font-family: 'Roboto Mono';
   font-weight: bold;
@@ -134,7 +135,7 @@ div, p {
   background: var(--theme-midnight);
   border-radius: 6px;
 }
-.auth-page-wrapper .auth-page .__status-box .item {
+.auth-page-wrapper .auth-page #__status-box .item {
   margin: 10px 0;
   font-family: 'Roboto Mono';
   font-weight: 500;
@@ -142,18 +143,18 @@ div, p {
   line-height: 26px;
   letter-spacing: 0.5px;
 }
-.auth-page-wrapper .auth-page .__status-box .description {
+.auth-page-wrapper .auth-page #__status-box .description {
   margin-bottom: 20px;
   font-size: 12px;
   line-height: 18px;
 }
-.auth-page-wrapper .auth-page .__status-box .description::after {
+.auth-page-wrapper .auth-page #__status-box .description::after {
   content: 'less';
   display: inline;
   margin-left: 5px;
   color: white;
 }
-.auth-page-wrapper .auth-page .__status-box .description.hide {
+.auth-page-wrapper .auth-page #__status-box .description.hide {
   position: relative;
 	display: block;
 	display: -webkit-box;
@@ -163,30 +164,30 @@ div, p {
 	overflow: hidden;
 	text-overflow: clip;
 }
-.auth-page-wrapper .auth-page .__status-box .description.hide::after {
+.auth-page-wrapper .auth-page #__status-box .description.hide::after {
   content: 'more';
   position: absolute;
   bottom: 0;
   right: 0;
   height: 19.2px;
 }
-.auth-page-wrapper .auth-page .__status-box .description::after {
+.auth-page-wrapper .auth-page #__status-box .description::after {
   content: 'less';
   display: inline;
   margin-left: 5px;
   color: white;
 }
-.auth-page-wrapper .auth-page .__status-box .description.hide::after {
+.auth-page-wrapper .auth-page #__status-box .description.hide::after {
   content: 'more';
 }
-.auth-page-wrapper .auth-page .__status-box > .row {
+.auth-page-wrapper .auth-page #__status-box > .row {
   margin: 7px 0;
 }
-.auth-page-wrapper .auth-page .__status-box .key {
+.auth-page-wrapper .auth-page #__status-box .key {
   font-size: 12px;
   letter-spacing: 0.5px;
 }
-.auth-page-wrapper .auth-page .__status-box .value {
+.auth-page-wrapper .auth-page #__status-box .value {
   font-family: 'Roboto Mono';
   font-size: 12px;
   text-align: right;
@@ -211,7 +212,7 @@ div, p {
   color: white;
   font-weight: 500;
 }
-.auth-page-wrapper .auth-page .btn-blue {
+.auth-page-wrapper .auth-page .btn {
+  display: none;
   width: 100%;
-  color: white;
 }

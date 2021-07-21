@@ -131,19 +131,23 @@ async function getTagData(variable) {
       statusMessage = 'There was a problem authenticating this tag. Please contact info@smartseal.io for more information';
       break;
     case 1:
-      statusIcon = "..icassets/ons/status-success.svg";
+      statusIcon = "./assets/icons/status-success.svg";
       statusType = 'Authenticated'
+      document.getElementById("__status-box").style.display="block";
+      document.getElementById("redeem-button").style.display="block";
       break;
     case 2:
-      statusIcon = "..icassets/ons/status-success.svg";
+      statusIcon = "./assets/icons/status-success.svg";
       statusType = 'Authenticated and Sealed'
+      document.getElementById("__status-box").style.display="block";
       break;
     case 3:
-      statusIcon = "..icassets/ons/status-success.svg";
+      statusIcon = "./assets/icons/status-success.svg";
       statusType = 'Authenticated and Unsealed'
+      document.getElementById("__status-box").style.display="block";
       break;
     case 4:
-      statusIcon = "..icassets/ons/status-warning.svg";
+      statusIcon = "./assets/icons/status-warning.svg";
       statusType = 'Authentication Token Expired'
       statusMessage = 'Please rescan tag';
       break;
@@ -166,7 +170,7 @@ async function getTagData(variable) {
   document.getElementById('status-icon').src = statusIcon;
   document.getElementById('status-type').innerText = statusType;
   if (statusMessage !== '')
-    document.getElementById('status-message').innerHtml = statusMessage;
+    document.getElementById('status-message').innerText = statusMessage;
   bind(data, document.querySelector(".auth-page"));
   return data;
 }
