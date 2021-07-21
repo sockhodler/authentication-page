@@ -114,6 +114,7 @@ div, p {
 .auth-page-wrapper .auth-page .__header .status-title img {
   margin-left: 8px;
   margin-right: -8px;
+  vertical-align: text-bottom;
 }
 
 /* __Status box */

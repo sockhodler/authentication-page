@@ -133,17 +133,20 @@ async function getTagData(variable) {
     case 1:
       statusIcon = "./assets/icons/status-success.svg";
       statusType = 'Authenticated'
+      document.getElementById('status-message').style.display = 'none';
       document.getElementById("__status-box").style.display="block";
-      document.getElementById("redeem-button").style.display="block";
+      document.getElementById("redeem").style.display="block";
       break;
     case 2:
       statusIcon = "./assets/icons/status-success.svg";
       statusType = 'Authenticated and Sealed'
+      document.getElementById('status-message').style.display = 'none';
       document.getElementById("__status-box").style.display="block";
       break;
     case 3:
       statusIcon = "./assets/icons/status-success.svg";
       statusType = 'Authenticated and Unsealed'
+      document.getElementById('status-message').style.display = 'none';
       document.getElementById("__status-box").style.display="block";
       break;
     case 4:
@@ -169,8 +172,7 @@ async function getTagData(variable) {
   }
   document.getElementById('status-icon').src = statusIcon;
   document.getElementById('status-type').innerText = statusType;
-  if (statusMessage !== '')
-    document.getElementById('status-message').innerText = statusMessage;
+  document.getElementById('status-message').innerText = statusMessage;
   bind(data, document.querySelector(".auth-page"));
   return data;
 }
