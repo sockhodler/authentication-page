@@ -78,6 +78,7 @@ div, p {
 .auth-page-wrapper {
   position: fixed;
   bottom: -1px;
+  width: 100%;
 }
 .auth-page-wrapper::before {
   content: '';
@@ -194,7 +195,7 @@ div, p {
   overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;
-  max-width: 200px;
+  max-width: 400px;
 }
 
 /* __Copyright */
