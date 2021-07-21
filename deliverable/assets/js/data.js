@@ -117,54 +117,50 @@ async function getTagData(variable) {
     body: JSON.stringify(variable)
   });
   let data = await response.text();
-  // console.log(data);
   data = JSON.parse(data);
   console.log(data);
+
+  let statusIcon;
+  let statusType;
+  let statusMessage;
+
   switch (data.scan.auth_stat) {
     case 0:
-      console.log('0');
-      var statusIcon = "./assets/icons/status-error.svg";
-      var statusType = 'Error'
-      var statusMessage = 'There was a problem authenticating this tag. Please contact info@smartseal.io for more information';
+      statusIcon = "./assets/icons/status-error.svg";
+      statusType = 'Error'
+      statusMessage = 'There was a problem authenticating this tag. Please contact info@smartseal.io for more information';
       break;
     case 1:
-      console.log('1');
-      var statusIcon = "..icassets/ons/status-success.svg";
-      var statusType = 'Authenticated'
+      statusIcon = "..icassets/ons/status-success.svg";
+      statusType = 'Authenticated'
       break;
     case 2:
-      console.log('2');
-      var statusIcon = "..icassets/ons/status-success.svg";
-      var statusType = 'Authenticated and Sealed'
+      statusIcon = "..icassets/ons/status-success.svg";
+      statusType = 'Authenticated and Sealed'
       break;
     case 3:
-      console.log('3');
-      var statusIcon = "..icassets/ons/status-success.svg";
-      var statusType = 'Authenticated and Unsealed'
+      statusIcon = "..icassets/ons/status-success.svg";
+      statusType = 'Authenticated and Unsealed'
       break;
     case 4:
-      console.log('4');
-      var statusIcon = "..icassets/ons/status-warning.svg";
-      var statusType = 'Authentication Token Expired'
-      var statusMessage = 'Please rescan tag';
+      statusIcon = "..icassets/ons/status-warning.svg";
+      statusType = 'Authentication Token Expired'
+      statusMessage = 'Please rescan tag';
       break;
     case 5:
-      console.log('5');
-      var statusIcon = "./assets/icons/status-error.svg";
-      var statusType = 'Tag Not Active'
-      var statusMessage = 'Here is where we can have the error message on this screen and the next action';
+      statusIcon = "./assets/icons/status-error.svg";
+      statusType = 'Tag Not Active'
+      statusMessage = 'Here is where we can have the error message on this screen and the next action';
       break;
     case 6:
-      console.log('6');
-      var statusIcon = "./assets/icons/status-error.svg";
-      var statusType = 'Tag Not Active'
-      var statusMessage = 'Here is where we can have the error message on this screen and the next action';
+      statusIcon = "./assets/icons/status-error.svg";
+      statusType = 'Tag Not Active'
+      statusMessage = 'Here is where we can have the error message on this screen and the next action';
       break;
     case 7:
-      console.log('7');
-      var statusIcon = "./assets/icons/status-error.svg";
-      var statusType = 'Authentication Code Not Valid'
-      var statusMessage = 'Here is where we can have the error message on this screen and the next action';
+      statusIcon = "./assets/icons/status-error.svg";
+      statusType = 'Authentication Code Not Valid'
+      statusMessage = 'Here is where we can have the error message on this screen and the next action';
       break;
   }
   document.getElementById('status-icon').src = statusIcon;
