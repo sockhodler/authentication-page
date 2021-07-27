@@ -48,6 +48,9 @@ div, p {
 .btn.btn-blue:hover {
   filter: brightness(.75);
 }
+.btn.disabled {
+  background: var(--theme-gray);
+}
 
 /* @mixin truncate($width: null) {
 	overflow: hidden;

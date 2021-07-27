@@ -132,7 +132,6 @@ async function getTagData(variable) {
   });
   let data = await response.text();
   data = JSON.parse(data);
-  console.log(data);
 
   let statusIcon;
   let statusType;
@@ -149,8 +148,13 @@ async function getTagData(variable) {
       statusType = 'Authenticated'
       document.getElementById('status-message').style.display = 'none';
       document.getElementById('__status-box').style.display = 'block';
-      setNftAddress(data.tag.chain_id, data.tag.nft_owner_address, data.tag.nft_contract_address);
       document.getElementById('redeem').style.display = 'block';
+      setNftAddress(data.tag.chain_id, data.tag.nft_owner_address, data.tag.nft_contract_address);
+      if (data.tag.nft_redemption_url) {
+        document.getElementById('redeem').href = data.tag.nft_redemption_url;
+      } else {
+        document.getElementById('redeem').classList.add('disabled');
+      }
       break;
     case 2:
       statusIcon = './assets/icons/status-success.svg';
