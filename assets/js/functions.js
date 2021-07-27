@@ -6,5 +6,5 @@ desc.onclick = function() {
 
 var close = document.querySelector('.btn-close');
 close.onclick = function() {
-  document.querySelector('.auth-page-wrapper').style.display = "none";
+  document.querySelector('.auth-page-wrapper').style.display = 'none';
 }
