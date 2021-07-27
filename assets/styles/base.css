@@ -52,35 +52,6 @@ div, p {
   background: var(--theme-gray);
 }
 
-/* @mixin truncate($width: null) {
-	overflow: hidden;
-	text-overflow: ellipsis;
-	white-space: nowrap;
-	width: $width;
-} */
-
-/* @mixin truncateBlock($font-size, $line-height, $lines-to-show) {
-	position: relative;
-	display: block;
-	display: -webkit-box;
-	height: $font-size*$line-height*$lines-to-show;
-	font-size: $font-size;
-	line-height: $line-height;
-	-webkit-line-clamp: $lines-to-show;
-	-webkit-box-orient: vertical;
-	overflow: hidden;
-	text-overflow: clip;
-
-	&:after {
-		content: '';
-		display: block;
-		position: absolute;
-		bottom: 0;
-		right: 0;
-		height: $font-size*$line-height*1;	
-	}
-} */
-
 /* Auth Page */
 .auth-page-wrapper {
   position: fixed;
