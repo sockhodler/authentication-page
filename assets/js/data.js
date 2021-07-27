@@ -91,6 +91,20 @@ function bind(data, element) {
   [].forEach.call(holders, bindSingleElement.bind(null, data));
 }
 
+// Setters
+function setNftAddress(chainId, ownerAddress, contractAddress) {
+  if (chainId) {
+    let url;
+    if (chainId === 1) {
+      url = 'https://etherscan.io/address/';
+    } else if (chainId === 137) {
+      url = 'https://polygonscan.com/address/';
+    }
+    document.getElementById('owner-address').href = (url + ownerAddress);
+    document.getElementById('contract-address').href = (url + contractAddress);
+  }
+}
+
 // Data-binding
 let queryVar = 'pl'
 
@@ -134,20 +148,23 @@ async function getTagData(variable) {
       statusIcon = './assets/icons/status-success.svg';
       statusType = 'Authenticated'
       document.getElementById('status-message').style.display = 'none';
-      document.getElementById('__status-box').style.display='block';
-      document.getElementById('redeem').style.display='block';
+      document.getElementById('__status-box').style.display = 'block';
+      setNftAddress(data.tag.chain_id, data.tag.nft_owner_address, data.tag.nft_contract_address);
+      document.getElementById('redeem').style.display = 'block';
       break;
     case 2:
       statusIcon = './assets/icons/status-success.svg';
       statusType = 'Authenticated and Sealed'
       document.getElementById('status-message').style.display = 'none';
-      document.getElementById('__status-box').style.display='block';
+      document.getElementById('__status-box').style.display = 'block';
+      setNftAddress(data.tag.chain_id, data.tag.nft_owner_address, data.tag.nft_contract_address);
       break;
     case 3:
       statusIcon = './assets/icons/status-success.svg';
       statusType = 'Authenticated and Unsealed'
       document.getElementById('status-message').style.display = 'none';
-      document.getElementById('__status-box').style.display='block';
+      document.getElementById('__status-box').style.display = 'block';
+      setNftAddress(data.tag.chain_id, data.tag.nft_owner_address, data.tag.nft_contract_address);
       break;
     case 4:
       statusIcon = './assets/icons/status-warning.svg';
