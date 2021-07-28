@@ -105,6 +105,14 @@ function setNftAddress(chainId, ownerAddress, contractAddress) {
   }
 }
 
+function setRedemptionUrl(url) {
+  if (url) {
+    document.getElementById('redeem').href = url;
+  } else {
+    document.getElementById('redeem').classList.add('disabled');
+  }
+}
+
 // Data-binding
 let queryVar = 'pl'
 
@@ -150,11 +158,7 @@ async function getTagData(variable) {
       document.getElementById('__status-box').style.display = 'block';
       document.getElementById('redeem').style.display = 'block';
       setNftAddress(data.tag.chain_id, data.tag.nft_owner_address, data.tag.nft_contract_address);
-      if (data.tag.nft_redemption_url) {
-        document.getElementById('redeem').href = data.tag.nft_redemption_url;
-      } else {
-        document.getElementById('redeem').classList.add('disabled');
-      }
+      setRedemptionUrl(data.tag.nft_redemption_url);
       break;
     case 2:
       statusIcon = './assets/icons/status-success.svg';
@@ -162,6 +166,7 @@ async function getTagData(variable) {
       document.getElementById('status-message').style.display = 'none';
       document.getElementById('__status-box').style.display = 'block';
       setNftAddress(data.tag.chain_id, data.tag.nft_owner_address, data.tag.nft_contract_address);
+      setRedemptionUrl(data.tag.nft_redemption_url);
       break;
     case 3:
       statusIcon = './assets/icons/status-success.svg';
