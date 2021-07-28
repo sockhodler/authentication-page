@@ -171,9 +171,9 @@ async function getTagData(variable) {
       setNftAddress(data.tag.chain_id, data.tag.nft_owner_address, data.tag.nft_contract_address);
       break;
     case 4:
-      statusIcon = './assets/icons/status-warning.svg';
-      statusType = 'Authentication Token Expired'
-      statusMessage = 'Please rescan tag';
+      statusIcon = './assets/icons/status-error.svg';
+      statusType = 'Tag Not Active'
+      statusMessage = 'Here is where we can have the error message on this screen and the next action';
       break;
     case 5:
       statusIcon = './assets/icons/status-error.svg';
@@ -186,6 +186,11 @@ async function getTagData(variable) {
       statusMessage = 'Here is where we can have the error message on this screen and the next action';
       break;
     case 7:
+        statusIcon = './assets/icons/status-warning.svg';
+        statusType = 'Authentication Token Expired'
+        statusMessage = 'Please rescan tag';
+        break;
+    case 8:
       statusIcon = './assets/icons/status-error.svg';
       statusType = 'Authentication Code Not Valid'
       statusMessage = 'Here is where we can have the error message on this screen and the next action';
