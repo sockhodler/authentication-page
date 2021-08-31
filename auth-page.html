@@ -1,75 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&display=swap" />
-    <link rel="stylesheet" href="./assets/styles/base.css">
-    <title>Authentication | SmartSeal</title>
-  </head>
-  <body>
-    <div class="auth-page-wrapper">
-      <div class="auth-page">
-        <!-- close icon -->
-        <img src="./assets/icons/close-gray.svg" class="btn-close" alt="Close">
-  
-        <!-- loading screen -->
-        <div class="__loading">
-  
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&display=swap" />
+  <link rel="stylesheet" href="./assets/styles/base.css">
+  <title>Authentication | SmartSeal</title>
+</head>
+
+<body>
+  <div class="auth-page-wrapper">
+    <div class="auth-page">
+      <!-- close icon -->
+      <img src="./assets/icons/close-gray.svg" class="btn-close" alt="Close">
+
+      <!-- loading screen -->
+      <div class="__loading">
+
+      </div>
+
+      <!-- icon header -->
+      <div class="__header">
+        <img id="status-icon" alt="Status icon">
+        <h2 class="status-title">
+          <strong id="status-type"></strong>
+          <img src="./assets/icons/question-dark.svg" alt="Question">
+        </h2>
+        <p id="status-message" class="text-muted m-0"></p>
+      </div>
+
+      <!-- status box -->
+      <div id="__status-box">
+        <div class="d-flex align-items-center justify-content-between">
+          <span class="tag">Status</span>
+          <img src="./assets/icons/RE_OS_logo_trans_3-01_SMALL.png" alt="Logo">
         </div>
-  
-        <!-- icon header -->
-        <div class="__header">
-          <img id="status-icon" alt="Status icon">
-          <h2 class="status-title">
-            <strong id="status-type"></strong>
-            <img src="./assets/icons/question-dark.svg" alt="Question">
-          </h2>
-          <p id="status-message" class="text-muted m-0"></p>
+
+        <h1 class="item" data-value="tag.product_name"></h1>
+        <p class="description text-muted hide" data-value="tag.comments"></p>
+
+        <div class="row align-items-center justify-content-between">
+          <div class="key col-5 p-0">UID</div>
+          <div class="value col-7 p-0" data-value="tag.uid"></div>
         </div>
-  
-        <!-- status box -->
-        <div id="__status-box">
-          <div class="d-flex align-items-center justify-content-between">
-            <span class="tag">Status</span>
-            <img src="./assets/icons/check-white.svg" alt="Checked">
-          </div>
-  
-          <h1 class="item" data-value="tag.product_name"></h1>
-          <p class="description text-muted hide" data-value="tag.comments"></p>
-  
-          <div class="row align-items-center justify-content-between">
-            <div class="key col-5 p-0">UID</div>
-            <div class="value col-7 p-0" data-value="tag.uid"></div>
-          </div>
-          <div class="row align-items-center justify-content-between">
-            <div class="key col-5 p-0">Token ID</div>
-            <div class="value col-7 p-0" data-value="tag.nft_token_id"></div>
-          </div>
-          <div class="row align-items-center justify-content-between">
-            <div class="key col-5 p-0">Owner Address</div>
-            <a class="value col-7 p-0" target="_blank" id="owner-address" data-value="tag.nft_owner_address"></a>
-          </div>
-          <div class="row align-items-center justify-content-between">
-            <div class="key col-5 p-0">Contract Address</div>
-            <a class="value col-7 p-0" target="_blank" id="contract-address" data-value="tag.nft_contract_address"></a>
-          </div>
+        <div class="row align-items-center justify-content-between">
+          <div class="key col-5 p-0">Token ID</div>
+          <div class="value col-7 p-0" data-value="tag.nft_token_id"></div>
         </div>
-  
-        <!-- button -->
-        <a id="redeem" class="btn btn-blue" target="_blank">Redeem NFT</a>
-  
-        <!-- copyright -->
-        <div class="__copyright">
-          <a href="https://www.smartseal.io/" target="_blank">Powered by <strong>SmartSeal</strong></a>
+        <div class="row align-items-center justify-content-between">
+          <div class="key col-5 p-0">Owner Address</div>
+          <a class="value col-7 p-0" target="_blank" id="owner-address" data-value="tag.nft_owner_address"></a>
+        </div>
+        <div class="row align-items-center justify-content-between">
+          <div class="key col-5 p-0">Contract Address</div>
+          <a class="value col-7 p-0" target="_blank" id="contract-address" data-value="tag.nft_contract_address"></a>
         </div>
       </div>
-    </div>
 
-    <script type="text/javascript" src="./assets/js/functions.js"></script>
-    <script type="text/javascript" src="./assets/js/data.js"></script>
-  </body>
+      <!-- button -->
+      <a id="redeem" class="btn btn-blue" target="_blank">Redeem NFT</a>
+
+      <!-- copyright -->
+      <div class="__copyright">
+        <a href="https://www.smartseal.io/" target="_blank">Powered by <strong>SmartSeal</strong></a>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" src="./assets/js/functions.js"></script>
+  <script type="text/javascript" src="./assets/js/data.js"></script>
+</body>
+
 </html>

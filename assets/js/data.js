@@ -10,8 +10,8 @@
  * @param  {String} path a path to a value on the data object
  * @return the value of following the path on the data object
  */
- function followPath(data, path) {
-  return path.split('.').reduce(function(prev, curr) {
+function followPath(data, path) {
+  return path.split('.').reduce(function (prev, curr) {
     return prev && prev[curr];
   }, data);
 }
@@ -56,7 +56,7 @@ function bind(data, element) {
  * @return the value of following the path on the data object
  */
 function followPath(data, path) {
-  return path.split('.').reduce(function(prev, curr) {
+  return path.split('.').reduce(function (prev, curr) {
     return prev && prev[curr];
   }, data);
 }
@@ -129,7 +129,7 @@ function getQueryVariable(queryVar) {
 }
 
 async function getTagData(variable) {
-  let response = await fetch('https://staging.smartseal.io/api/authenticate/', {
+  let response = await fetch('https://mintgolddust.smartseal.io/api/authenticate/', {
     headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json'
@@ -191,10 +191,10 @@ async function getTagData(variable) {
       statusMessage = 'Here is where we can have the error message on this screen and the next action';
       break;
     case 7:
-        statusIcon = './assets/icons/status-warning.svg';
-        statusType = 'Authentication Token Expired'
-        statusMessage = 'Please rescan tag';
-        break;
+      statusIcon = './assets/icons/status-warning.svg';
+      statusType = 'Authentication Token Expired'
+      statusMessage = 'Please rescan tag';
+      break;
     case 8:
       statusIcon = './assets/icons/status-error.svg';
       statusType = 'Authentication Code Not Valid'
@@ -212,6 +212,5 @@ var data;
 var response;
 var post_data;
 var url_payload = getQueryVariable(queryVar);
-post_data = {useragent:'useragent string goes here', ip_address:'111.111.111.111', url_payload:'4D43652BD6DFD67F9359EEEB178BFD7AFBA2C1915C52AF90'};
-// post_data = { useragent: 'useragent string goes here', ip_address: '111.111.111.111', url_payload: url_payload };
+post_data = { useragent: 'useragent string goes here', ip_address: '111.111.111.111', url_payload: url_payload };
 response = getTagData(post_data);
