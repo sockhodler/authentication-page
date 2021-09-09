@@ -167,6 +167,6 @@ var data;
 var response;
 var post_data;
 var url_payload = getQueryVariable(queryVar);
-post_data = {useragent:'useragent string goes here', ip_address:'111.111.111.111', url_payload:'4D43652BD6DFD67F9359EEEB178BFD7AFBA2C1915C52AF90'};
+post_data = { useragent: 'useragent string goes here', ip_address: '111.111.111.111', url_payload: '4D43652BD6DFD67F9359EEEB178BFD7AFBA2C1915C52AF90' };
 // post_data = { useragent: 'useragent string goes here', ip_address: '111.111.111.111', url_payload: url_payload };
 response = getTagData(post_data);
