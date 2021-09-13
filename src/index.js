@@ -7,6 +7,8 @@ import iconSuccess from './assets/icons/status-success.svg';
 let queryVar = 'pl'
 
 function getQueryVariable(queryVar) {
+  console.log(window.location);
+  console.log(window.parent.location);
   var query = window.location.search.substring(1);
   var vars = query.split('&');
   for (var i = 0; i < vars.length; i++) {
@@ -19,8 +21,8 @@ function getQueryVariable(queryVar) {
 }
 
 var url_payload = getQueryVariable(queryVar);
-var post_data = { useragent: 'useragent string goes here', ip_address: '111.111.111.111', url_payload: '4D43652BD6DFD67F9359EEEB178BFD7AFBA2C1915C52AF90' };
-// post_data = { useragent: 'useragent string goes here', ip_address: '111.111.111.111', url_payload: url_payload };
+// var post_data = { useragent: 'useragent string goes here', ip_address: '111.111.111.111', url_payload: '4D43652BD6DFD67F9359EEEB178BFD7AFBA2C1915C52AF90' };
+var post_data = { useragent: 'useragent string goes here', ip_address: '111.111.111.111', url_payload: url_payload };
 
 export class SmartSealAuth extends HTMLElement {
   constructor() {
@@ -152,6 +154,11 @@ export class SmartSealAuth extends HTMLElement {
         statusIcon = iconError;
         statusType = 'Authentication Code Not Valid'
         statusMessage = 'Here is where we can have the error message on this screen and the next action';
+        break;
+      default:
+        statusIcon = iconError;
+        statusType = 'Error'
+        statusMessage = 'There was a problem authenticating this tag. Please contact info@smartseal.io for more information';
         break;
     }
     this.shadowRoot.getElementById('status-icon').innerHTML = statusIcon;
