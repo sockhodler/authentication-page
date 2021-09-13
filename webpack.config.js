@@ -14,6 +14,10 @@ module.exports = {
         test: /\.html$/i,
         loader: 'html-loader',
       },
+      {
+        test: /\.svg$/i,
+        use: 'raw-loader',
+      },
     ],
   }
 };

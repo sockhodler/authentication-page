@@ -1,4 +1,95 @@
 <style>
+/* Inter */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v3/UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa1ZL7W0Q5nw.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v3/UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa1ZL7W0Q5nw.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* Roboto Mono */
+@font-face {
+  font-family: 'Roboto Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/robotomono/v13/L0xTDF4xlVMF-BfR8bXMIhJHg45mwgGEFl0_3vrtSM1J-gEPT5Ese6hmHSh0me8iUI0.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Roboto Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/robotomono/v13/L0xTDF4xlVMF-BfR8bXMIhJHg45mwgGEFl0_3vrtSM1J-gEPT5Ese6hmHSh0me8iUI0.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* Helper Classes */
+.text-muted {
+  color: #6c757d!important;
+}
+.m-0 {
+  margin: 0!important;
+}
+.align-items-center {
+  -webkit-box-align: center!important;
+  -ms-flex-align: center!important;
+  align-items: center!important;
+}
+.justify-content-between {
+  -webkit-box-pack: justify!important;
+  -ms-flex-pack: justify!important;
+  justify-content: space-between!important;
+}
+.d-flex {
+  display: -webkit-box!important;
+  display: -ms-flexbox!important;
+  display: flex!important;
+}
+.p-0 {
+  padding: 0!important;
+}
+.row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+/* .col, .col-1, .col-10, .col-11, .col-12, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-auto, .col-lg, .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-auto, .col-md, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-auto, .col-sm, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-auto, .col-xl, .col-xl-1, .col-xl-10, .col-xl-11, .col-xl-12, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-auto */
+.col-5, .col-7 {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+.col-5 {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 41.666667%;
+  flex: 0 0 41.666667%;
+  max-width: 41.666667%;
+}
+.col-7 {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 58.333333%;
+  flex: 0 0 58.333333%;
+  max-width: 58.333333%;
+}
+
 /* Colors */
 :host {
   --theme-blue: #3FA7FE;
@@ -13,9 +104,29 @@
 /* Typography */
 * {
   font-family: 'Inter', sans-serif;
-  font-weight: normal;
 }
-
+body {
+  margin: 0;
+}
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  margin-bottom: .5rem;
+}
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+a {
+  text-decoration: none;
+  box-sizing: border-box;
+}
+svg {
+  vertical-align: top;
+}
+a:not([href]):not([tabindex]):focus, a:not([href]):not([tabindex]):hover {
+  color: inherit;
+  text-decoration: none;
+}
 h1 {
   font-size: 20px;
   font-weight: 500;
@@ -36,6 +147,19 @@ div, p {
 }
 
 .btn {
+  display: inline-block;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border: 1px solid transparent;
+  padding: .375rem .75rem;
+  border-radius: .25rem;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+
   font-weight: bold;
   font-size: 16px;
   line-height: 19px;
@@ -51,6 +175,12 @@ div, p {
 }
 .btn.disabled {
   background: var(--theme-gray);
+}
+.btn.disabled, .btn:disabled {
+  opacity: .65;
+}
+a.btn.disabled, fieldset:disabled a.btn {
+  pointer-events: none;
 }
 
 /* Auth Page */
@@ -92,10 +222,10 @@ div, p {
   text-align: center;
   margin-bottom: 20px;
 }
-.auth-page-wrapper .auth-page .__header #status-icon {
+.auth-page-wrapper .auth-page .__header #status-icon svg {
   margin: -15px 0 -25px;
 }
-.auth-page-wrapper .auth-page .__header .status-title img {
+.auth-page-wrapper .auth-page .__header .status-title svg {
   margin-left: 8px;
   margin-right: -8px;
   vertical-align: text-bottom;
@@ -212,7 +342,11 @@ div, p {
 <div class="auth-page-wrapper">
   <div class="auth-page">
     <!-- close icon -->
-    <img src="./assets/icons/close-gray.svg" class="btn-close" alt="Close">
+    <svg class="btn-close" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="14" cy="14" r="13.5" stroke="#595B86"/>
+      <path d="M19.0659 9.06586L8.93413 19.1976" stroke="#595B86" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M19.0659 19.1976L8.93413 9.0659" stroke="#595B86" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
 
     <!-- loading screen -->
     <div class="__loading">
@@ -221,10 +355,13 @@ div, p {
 
     <!-- icon header -->
     <div class="__header">
-      <img id="status-icon" alt="Status icon">
+      <div id="status-icon"></div>
       <h2 class="status-title">
         <strong id="status-type"></strong>
-        <img src="./assets/icons/question-dark.svg" alt="Question">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="10" cy="10" r="10" fill="#313450"/>
+          <path d="M8.91091 11.9553H10.5991V11.7935C10.608 10.8658 10.9198 10.4329 11.6236 9.98097C12.4566 9.4529 13 8.75357 13 7.63558C13 5.9705 11.7439 5 9.9755 5C8.35857 5 7.04009 5.9039 7 7.80685H8.81737C8.8441 7.0314 9.38307 6.61751 9.96659 6.61751C10.5679 6.61751 11.0535 7.04567 11.0535 7.70695C11.0535 8.33016 10.6303 8.74405 10.0824 9.11513C9.33408 9.61941 8.91537 10.1284 8.91091 11.7935V11.9553ZM9.78842 15C10.3586 15 10.853 14.491 10.8575 13.8582C10.853 13.235 10.3586 12.726 9.78842 12.726C9.20045 12.726 8.71492 13.235 8.71938 13.8582C8.71492 14.491 9.20045 15 9.78842 15Z" fill="white"/>
+        </svg>
       </h2>
       <p id="status-message" class="text-muted m-0"></p>
     </div>
@@ -233,7 +370,16 @@ div, p {
     <div id="__status-box">
       <div class="d-flex align-items-center justify-content-between">
         <span class="tag">Status</span>
-        <img src="./assets/icons/check-white.svg" alt="Checked">
+        <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <rect width="25" height="25" rx="6" fill="white"/>
+          <rect x="2" y="5" width="21" height="17" fill="url(#pattern0)"/>
+          <defs>
+            <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
+              <use xlink:href="#image0" transform="translate(-0.118598) scale(0.015274 0.0188679)"/>
+            </pattern>
+            <image id="image0" width="81" height="53" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFEAAAA1CAYAAAA56gd6AAAClklEQVR4Ae2ZgW3CMBBFWYENmCB0AZgAJoAJYAKYgAlgApgAJoAJ2IAN2MDVj3SSFcVOdP52gnSRKrfYOZ9f/j87dOLsSiYwSY5gAZxBJIjAIBpEAgFCCFOiQSQQIIQwJRpEAgFCCFOiQSQQIIQwJRpEAgFCCFOiQSQQIIQwJXZA/Hw+HSNcnm9x7ve7+36/nZOPcQDyfjwe7nQ6ub7roCvx/X678/k8Rj7BnF6vlzsej265XLrValXDCw5u6aBCBMDZbDZ6FSLPy+Xittutm06ndc673c71sW4LQ56dYYN59ec2m03bPIN+Bji3283t9/saGMDhp6qq2jWppYemxPV6XSeGWjL0JXUNFsWDFWjSaiwbWxMFIsBJgs/nMzZftj7UNeSBuia5+C3KTIplY4knQwQ0P9lSEP26BkB+Dv7vsOz1es1ap5Mhio0lcRwLclx+XWuzqMwvLWpzqQeaBLGpQiwAlmFdOK/J0UPgxFoo8nA4qHdZbd5JEEOKgNU0F+5DXWuqOwYOfSUsG1uPGiIWHFocFNEHJCwq57VYXQvNU9KyWSD6O3JokVAUxsGW2D3ldQqH3JCKQ7Hk86EsmwUizlqysBLtYrGod9nYYobqU9tZYz8NbGxUpXZZ7UNQQ9QA6XsPHhDKgPZdVgtDe58aInbEvlD6jhuzZWOA1RBxHusLp2vcL1g2C0RYLaUuQsmwbOo3KLHFlepTKxEJ4p20S2V+P6BDdbleDUtBa86TBBHBcKjuOu7gUJz7S4Dmwkr+nQxRkoW9cRTBvwagtLEfSyRvRkuDyEjmV2MYRMKTM4gGkUCAEMKUaBAJBAghTIkGkUCAEMKUaBAJBAghTIkGkUCAEMKUaBAJBAghTIkGkUCAEOIfjkVn82jxDnIAAAAASUVORK5CYII="/>
+          </defs>
+        </svg>
       </div>
 
       <h1 class="item" data-value="tag.product_name"></h1>

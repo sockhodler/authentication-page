@@ -1,6 +1,8 @@
 import template from './template.js';
 import { bind } from './helpers.js';
-
+import iconError from './assets/icons/status-error.svg';
+import iconWarning from './assets/icons/status-warning.svg';
+import iconSuccess from './assets/icons/status-success.svg';
 
 let queryVar = 'pl'
 
@@ -31,6 +33,7 @@ export class SmartSealAuth extends HTMLElement {
 
     // clone template content nodes to the shadow DOM
     shadowRoot.appendChild(template.content.cloneNode(true));
+    this.injectFont();
   }
 
   connectedCallback() {
@@ -53,6 +56,7 @@ export class SmartSealAuth extends HTMLElement {
 
   close() {
     this.shadowRoot.querySelector('.auth-page-wrapper').style.display = 'none';
+    this.dispatchEvent( new CustomEvent( 'smartseal-close', { bubbles: true} ) );
   }
 
   // Setters
@@ -96,12 +100,12 @@ export class SmartSealAuth extends HTMLElement {
 
     switch (data.scan.auth_stat) {
       case 0:
-        statusIcon = './assets/icons/status-error.svg';
+        statusIcon = iconError;
         statusType = 'Error'
         statusMessage = 'There was a problem authenticating this tag. Please contact info@smartseal.io for more information';
         break;
       case 1:
-        statusIcon = './assets/icons/status-success.svg';
+        statusIcon = iconSuccess;
         statusType = 'Authenticated'
         this.shadowRoot.getElementById('status-message').style.display = 'none';
         this.shadowRoot.getElementById('__status-box').style.display = 'block';
@@ -110,7 +114,7 @@ export class SmartSealAuth extends HTMLElement {
         this.setRedemptionUrl(data.tag.nft_redemption_url);
         break;
       case 2:
-        statusIcon = './assets/icons/status-success.svg';
+        statusIcon = iconSuccess;
         statusType = 'Authenticated and Sealed'
         this.shadowRoot.getElementById('status-message').style.display = 'none';
         this.shadowRoot.getElementById('__status-box').style.display = 'block';
@@ -118,43 +122,88 @@ export class SmartSealAuth extends HTMLElement {
         this.setRedemptionUrl(data.tag.nft_redemption_url);
         break;
       case 3:
-        statusIcon = './assets/icons/status-success.svg';
+        statusIcon = iconSuccess;
         statusType = 'Authenticated and Unsealed'
         this.shadowRoot.getElementById('status-message').style.display = 'none';
         this.shadowRoot.getElementById('__status-box').style.display = 'block';
         this.setNftAddress(data.tag.chain_id, data.tag.nft_owner_address, data.tag.nft_contract_address);
         break;
       case 4:
-        statusIcon = './assets/icons/status-error.svg';
+        statusIcon = iconError;
         statusType = 'Tag Not Active'
         statusMessage = 'Here is where we can have the error message on this screen and the next action';
         break;
       case 5:
-        statusIcon = './assets/icons/status-error.svg';
+        statusIcon = iconError;
         statusType = 'Tag Not Active'
         statusMessage = 'Here is where we can have the error message on this screen and the next action';
         break;
       case 6:
-        statusIcon = './assets/icons/status-error.svg';
+        statusIcon = iconError;
         statusType = 'Tag Not Active'
         statusMessage = 'Here is where we can have the error message on this screen and the next action';
         break;
       case 7:
-          statusIcon = './assets/icons/status-warning.svg';
+          statusIcon = iconWarning;
           statusType = 'Authentication Token Expired'
           statusMessage = 'Please rescan tag';
           break;
       case 8:
-        statusIcon = './assets/icons/status-error.svg';
+        statusIcon = iconError;
         statusType = 'Authentication Code Not Valid'
         statusMessage = 'Here is where we can have the error message on this screen and the next action';
         break;
     }
-    this.shadowRoot.getElementById('status-icon').src = statusIcon;
+    this.shadowRoot.getElementById('status-icon').innerHTML = statusIcon;
     this.shadowRoot.getElementById('status-type').innerText = statusType;
     this.shadowRoot.getElementById('status-message').innerText = statusMessage;
     bind(data, this.shadowRoot.querySelector('.auth-page'));
     return data;
+  }
+
+  injectFont(){
+    var css = `
+      @font-face {
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/inter/v3/UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa1ZL7W0Q5nw.woff2) format('woff2');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+      @font-face {
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 700;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/inter/v3/UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa1ZL7W0Q5nw.woff2) format('woff2');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+      @font-face {
+        font-family: 'Roboto Mono';
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/robotomono/v13/L0xTDF4xlVMF-BfR8bXMIhJHg45mwgGEFl0_3vrtSM1J-gEPT5Ese6hmHSh0me8iUI0.woff2) format('woff2');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+      @font-face {
+        font-family: 'Roboto Mono';
+        font-style: normal;
+        font-weight: 500;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/robotomono/v13/L0xTDF4xlVMF-BfR8bXMIhJHg45mwgGEFl0_3vrtSM1J-gEPT5Ese6hmHSh0me8iUI0.woff2) format('woff2');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+    `;
+    if(!document.getElementById('smartSealFont')){
+      var head = document.head || document.getElementsByTagName('head')[0],
+        style = document.createElement('style');
+      style.id = 'smartSealFont';
+      style.type = 'text/css';
+      style.innerText = css;
+      head.appendChild(style);
+    }
   }
 }
 
