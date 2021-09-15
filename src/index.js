@@ -3,27 +3,6 @@ import { bind } from './helpers.js';
 import iconError from './assets/icons/status-error.svg';
 import iconWarning from './assets/icons/status-warning.svg';
 import iconSuccess from './assets/icons/status-success.svg';
-
-let queryVar = 'pl'
-
-function getQueryVariable(queryVar) {
-  console.log(window.location);
-  console.log(window.parent.location);
-  var query = window.location.search.substring(1);
-  var vars = query.split('&');
-  for (var i = 0; i < vars.length; i++) {
-    var pair = vars[i].split('=');
-    if (decodeURIComponent(pair[0]) == queryVar) {
-      return decodeURIComponent(pair[1]);
-    }
-  }
-  console.log('Query variable %s not found', queryVar);
-}
-
-var url_payload = getQueryVariable(queryVar);
-// var post_data = { useragent: 'useragent string goes here', ip_address: '111.111.111.111', url_payload: '4D43652BD6DFD67F9359EEEB178BFD7AFBA2C1915C52AF90' };
-var post_data = { useragent: 'useragent string goes here', ip_address: '111.111.111.111', url_payload: url_payload };
-
 export class SmartSealAuth extends HTMLElement {
   constructor() {
     super();
@@ -46,17 +25,41 @@ export class SmartSealAuth extends HTMLElement {
 
     this.closeBtn = this.shadowRoot.querySelector('.btn-close');
     this.closeBtn.addEventListener('click', () => {
-      this.close();
+      this.hide();
     });
 
-    var response = this.getTagData(post_data);
+    let queryVar = 'pl'
+
+    var url_payload = this.getQueryVariable(queryVar);
+    // var post_data = { useragent: 'useragent string goes here', ip_address: '111.111.111.111', url_payload: '4D43652BD6DFD67F9359EEEB178BFD7AFBA2C1915C52AF90' };
+    var post_data = { useragent: 'useragent string goes here', ip_address: '111.111.111.111', url_payload: url_payload };
+
+    if( post_data && post_data.url_payload ){
+      this.getTagData(post_data);
+    }
+  }
+
+  getQueryVariable(queryVar) {
+    var query = window.location.search.substring(1);
+    var vars = query.split('&');
+    for (var i = 0; i < vars.length; i++) {
+      var pair = vars[i].split('=');
+      if (decodeURIComponent(pair[0]) == queryVar) {
+        return decodeURIComponent(pair[1]);
+      }
+    }
+    console.log('Query variable %s not found', queryVar);
   }
 
   toggleDescription() {
     this.description.classList.toggle('hide');
   }
 
-  close() {
+  show() {
+    this.shadowRoot.querySelector('.auth-page-wrapper').style.display = 'block';
+  }
+
+  hide() {
     this.shadowRoot.querySelector('.auth-page-wrapper').style.display = 'none';
     this.dispatchEvent( new CustomEvent( 'smartseal-close', { bubbles: true} ) );
   }
@@ -165,6 +168,9 @@ export class SmartSealAuth extends HTMLElement {
     this.shadowRoot.getElementById('status-type').innerText = statusType;
     this.shadowRoot.getElementById('status-message').innerText = statusMessage;
     bind(data, this.shadowRoot.querySelector('.auth-page'));
+
+    this.show();
+
     return data;
   }
 
