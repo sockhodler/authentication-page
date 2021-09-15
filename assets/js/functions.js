@@ -8,3 +8,9 @@ var close = document.querySelector('.btn-close');
 close.onclick = function() {
   document.querySelector('.auth-page-wrapper').style.display = 'none';
 }
+
+// Prevent overlay if there's no payload
+if (!window.location.protocol.includes('file') && // Always display locally
+    !window.location.href.includes('?pl=')) {
+  document.querySelector('.auth-page-wrapper').style.display = 'none';
+}
