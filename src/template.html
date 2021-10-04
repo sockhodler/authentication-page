@@ -259,35 +259,28 @@ a.btn.disabled, fieldset:disabled a.btn {
   letter-spacing: 0.5px;
 }
 .auth-page-wrapper .auth-page #__status-box .description {
-  margin-bottom: 20px;
+  margin-bottom: 16px;
+  position: relative;
+}
+.auth-page-wrapper .auth-page #__status-box .description p {
+  margin: 0;
   font-size: 12px;
   line-height: 18px;
   cursor: pointer;
 }
-.auth-page-wrapper .auth-page #__status-box .description::after {
-  content: 'less';
-  display: inline;
-  margin-left: 5px;
-  color: white;
-}
 .auth-page-wrapper .auth-page #__status-box .description.hide {
-  position: relative;
+  padding-bottom: 18px;
+}
+.auth-page-wrapper .auth-page #__status-box .description.hide p {
   display: block;
   display: -webkit-box;
-  height: calc(12px*1.6*2);
+  max-height: calc(12px*1.5*2);
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  text-overflow: clip;
+  text-overflow: ellipsis;
 }
-.auth-page-wrapper .auth-page #__status-box .description.hide::after {
-  content: 'more';
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  height: 19.2px;
-}
-.auth-page-wrapper .auth-page #__status-box .description::after {
+.auth-page-wrapper .auth-page #__status-box .description:not(.hide) p::after {
   content: 'less';
   display: inline;
   margin-left: 5px;
@@ -295,6 +288,13 @@ a.btn.disabled, fieldset:disabled a.btn {
 }
 .auth-page-wrapper .auth-page #__status-box .description.hide::after {
   content: 'more';
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  color: white;
+  font-size: 12px;
+  line-height: 18px;
 }
 .auth-page-wrapper .auth-page #__status-box > .row {
   margin: 7px 0;
@@ -383,7 +383,9 @@ a.btn.disabled, fieldset:disabled a.btn {
       </div>
 
       <h1 class="item" data-value="tag.product_name"></h1>
-      <p class="description text-muted hide" data-value="tag.description"></p>
+      <div class="description hide">
+        <p class="text-muted" data-value="tag.description"></p>
+      </div>
 
       <div class="row align-items-center justify-content-between">
         <div class="key col-5 p-0">UID</div>
