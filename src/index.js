@@ -72,6 +72,8 @@ export class SmartSealAuth extends HTMLElement {
         url = 'https://etherscan.io/address/';
       } else if (chainId === 137) {
         url = 'https://polygonscan.com/address/';
+      } else if (chainId === 3) {
+        url = 'https://ropsten.etherscan.io/address/';
       }
       this.shadowRoot.getElementById('owner-address').href = (url + ownerAddress);
       this.shadowRoot.getElementById('contract-address').href = (url + contractAddress);
