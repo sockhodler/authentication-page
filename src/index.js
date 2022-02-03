@@ -1,13 +1,13 @@
 import template from './template.js';
 import { bind } from './helpers.js';
-import iconError from './assets/icons/status-error.svg';
-import iconWarning from './assets/icons/status-warning.svg';
-import iconSuccess from './assets/icons/status-success.svg';
+import iconError from './assets/icons/sh-status-error.svg';
+import iconWarning from './assets/icons/sh-status-warning.svg';
+import iconSuccess from './assets/icons/sh-status-success.svg';
 export class SmartSealAuth extends HTMLElement {
   constructor() {
     super();
     // attach Shadow DOM to the parent element.
-    // save the shadowRoot in a property because, if you create your shadow DOM in closed mode, 
+    // save the shadowRoot in a property because, if you create your shadow DOM in closed mode,
     // you have no access from outside
 
     const shadowRoot = this.attachShadow({mode: 'open'});
@@ -109,7 +109,7 @@ export class SmartSealAuth extends HTMLElement {
       case 0:
         statusIcon = iconError;
         statusType = 'Error'
-        statusMessage = 'There was a problem authenticating this tag. Please contact info@smartseal.io for more information';
+        statusMessage = 'There was a problem authenticating this tag. Please contact sockmaster@sockhodler.com for more information';
         break;
       case 1:
         statusIcon = iconSuccess;
@@ -163,7 +163,7 @@ export class SmartSealAuth extends HTMLElement {
       default:
         statusIcon = iconError;
         statusType = 'Error'
-        statusMessage = 'There was a problem authenticating this tag. Please contact info@smartseal.io for more information';
+        statusMessage = 'There was a problem authenticating this tag. Please contact sockmaster@sockhodler.com for more information';
         break;
     }
     this.shadowRoot.getElementById('status-icon').innerHTML = statusIcon;
@@ -179,35 +179,19 @@ export class SmartSealAuth extends HTMLElement {
   injectFont(){
     var css = `
       @font-face {
-        font-family: 'Inter';
+        font-family: 'Lato';
         font-style: normal;
         font-weight: 400;
         font-display: swap;
-        src: url(https://fonts.gstatic.com/s/inter/v3/UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa1ZL7W0Q5nw.woff2) format('woff2');
+        src: url(http://fonts.googleapis.com/css?family=Lato:400,700) format('font-woff2');
         unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
       }
       @font-face {
-        font-family: 'Inter';
+        font-family: 'Lato';
         font-style: normal;
         font-weight: 700;
         font-display: swap;
-        src: url(https://fonts.gstatic.com/s/inter/v3/UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa1ZL7W0Q5nw.woff2) format('woff2');
-        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-      }
-      @font-face {
-        font-family: 'Roboto Mono';
-        font-style: normal;
-        font-weight: 400;
-        font-display: swap;
-        src: url(https://fonts.gstatic.com/s/robotomono/v13/L0xTDF4xlVMF-BfR8bXMIhJHg45mwgGEFl0_3vrtSM1J-gEPT5Ese6hmHSh0me8iUI0.woff2) format('woff2');
-        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-      }
-      @font-face {
-        font-family: 'Roboto Mono';
-        font-style: normal;
-        font-weight: 500;
-        font-display: swap;
-        src: url(https://fonts.gstatic.com/s/robotomono/v13/L0xTDF4xlVMF-BfR8bXMIhJHg45mwgGEFl0_3vrtSM1J-gEPT5Ese6hmHSh0me8iUI0.woff2) format('woff2');
+        src: url(http://fonts.googleapis.com/css?family=Lato:400,700) format('font-woff2');
         unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
       }
     `;
