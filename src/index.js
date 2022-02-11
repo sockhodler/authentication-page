@@ -3,7 +3,7 @@ import { bind } from './helpers.js';
 import iconError from './assets/icons/sh-status-error.svg';
 import iconWarning from './assets/icons/sh-status-warning.svg';
 import iconSuccess from './assets/icons/sh-status-success.svg';
-export class SmartSealAuth extends HTMLElement {
+export class SockHodlerAuth extends HTMLElement {
   constructor() {
     super();
     // attach Shadow DOM to the parent element.
@@ -64,7 +64,7 @@ export class SmartSealAuth extends HTMLElement {
     this.dispatchEvent( new CustomEvent( 'smartseal-close', { bubbles: true} ) );
   }
 
-  // Setters
+  // Setters --- Will need to modify for Algorand Chain
   setNftAddress(chainId, ownerAddress, contractAddress) {
     if (chainId) {
       let url;
@@ -195,6 +195,7 @@ export class SmartSealAuth extends HTMLElement {
         unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
       }
     `;
+// Do we need this? //
     if(!document.getElementById('smartSealFont')){
       var head = document.head || document.getElementsByTagName('head')[0],
         style = document.createElement('style');
@@ -206,4 +207,4 @@ export class SmartSealAuth extends HTMLElement {
   }
 }
 
-window.customElements.define('smartseal-auth', SmartSealAuth);
+window.customElements.define('sockhodler-auth', SockHodlerAuth);
