@@ -74,6 +74,8 @@ export class SockHodlerAuth extends HTMLElement {
         url = 'https://polygonscan.com/address/';
       } else if (chainId === 3) {
         url = 'https://ropsten.etherscan.io/address/';
+      } else if (chainId === 247) {
+        url = 'https://algoexplorer.io/asset/';
       }
       this.shadowRoot.getElementById('owner-address').href = (url + ownerAddress);
       this.shadowRoot.getElementById('contract-address').href = (url + contractAddress);
@@ -89,7 +91,7 @@ export class SockHodlerAuth extends HTMLElement {
   }
 
   async getTagData(variable) {
-    let response = await fetch('https://staging.smartseal.io/api/authenticate/', {
+    let response = await fetch('https://socks.smartseal.io/api/authenticate/', {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
