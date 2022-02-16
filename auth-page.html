@@ -9,6 +9,14 @@
 </head>
 <body>
   <sockhodler-auth></sockhodler-auth>
+  <script>
+      console.log(window.location);
+      const queryString = window.location.search;
+      const urlParams = new URLSearchParams(queryString);
+      if( ! urlParams.get('pl') ) {
+        window.location.href = window.location.href.split('?')[0] + '?pl=4D43652BD6DFD67F9359EEEB178BFD7AFBA2C1915C52AF90';
+      }
+    </script>
   <script src="dist/main.js"></script>
 </body>
 </html>
