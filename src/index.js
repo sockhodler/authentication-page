@@ -64,8 +64,8 @@ export class SockHodlerAuth extends HTMLElement {
     this.dispatchEvent( new CustomEvent( 'smartseal-close', { bubbles: true} ) );
   }
 
-  // Setters --- Will need to modify for Algorand Chain
-  setNftAddress(chainId, ownerAddress, contractAddress) {
+  // Setters
+  setNftAddress(chainId, tokenId, ownerAddress, creatorAddress, totalSupply, circSupply, mediaFile) {
     if (chainId) {
       let url;
       if (chainId === 1) {
@@ -75,10 +75,14 @@ export class SockHodlerAuth extends HTMLElement {
       } else if (chainId === 3) {
         url = 'https://ropsten.etherscan.io/address/';
       } else if (chainId === 247) {
-        url = 'https://algoexplorer.io/asset/';
+        url = 'https://algoexplorer.io/';
       }
-      this.shadowRoot.getElementById('owner-address').href = (url + ownerAddress);
-      this.shadowRoot.getElementById('contract-address').href = (url + contractAddress);
+      this.shadowRoot.getElementById('token-id').href = (url + 'asset/' + tokenId);
+      this.shadowRoot.getElementById('owner-address').href = (url + 'address/' + ownerAddress);
+      this.shadowRoot.getElementById('creator-address').href = (url + 'address/' + creatorAddress);
+      this.shadowRoot.getElementById('total-supply').innerText = totalSupply;
+      this.shadowRoot.getElementById('circ-supply').innerText = circSupply;
+      this.shadowRoot.getElementById('media-file').href = mediaFile;
     }
   }
 
@@ -119,7 +123,7 @@ export class SockHodlerAuth extends HTMLElement {
         this.shadowRoot.getElementById('status-message').style.display = 'none';
         this.shadowRoot.getElementById('__status-box').style.display = 'block';
         this.shadowRoot.getElementById('redeem').style.display = 'block';
-        this.setNftAddress(data.tag.chain_id, data.tag.nft_owner_address, data.tag.nft_contract_address);
+        this.setNftAddress(data.tag.chain_id, data.tag.nft_token_id, data.tag.nft_owner_address, data.tag.nft_originator_address, data.tag.nft_total_supply, data.tag.nft_circ_supply, data.tag.nft_token_uri);
         this.setRedemptionUrl(data.tag.nft_redemption_url);
         break;
       case 2:
@@ -127,7 +131,7 @@ export class SockHodlerAuth extends HTMLElement {
         statusType = 'Authenticated and Sealed'
         this.shadowRoot.getElementById('status-message').style.display = 'none';
         this.shadowRoot.getElementById('__status-box').style.display = 'block';
-        this.setNftAddress(data.tag.chain_id, data.tag.nft_owner_address, data.tag.nft_contract_address);
+        this.setNftAddress(data.tag.chain_id, data.tag.nft_token_id, data.tag.nft_owner_address, data.tag.nft_originator_address, data.tag.nft_total_supply, data.tag.nft_circ_supply, data.tag.nft_token_uri);
         this.setRedemptionUrl(data.tag.nft_redemption_url);
         break;
       case 3:
@@ -135,22 +139,22 @@ export class SockHodlerAuth extends HTMLElement {
         statusType = 'Authenticated and Unsealed'
         this.shadowRoot.getElementById('status-message').style.display = 'none';
         this.shadowRoot.getElementById('__status-box').style.display = 'block';
-        this.setNftAddress(data.tag.chain_id, data.tag.nft_owner_address, data.tag.nft_contract_address);
+        this.setNftAddress(data.tag.chain_id, data.tag.nft_token_id, data.tag.nft_owner_address, data.tag.nft_originator_address, data.tag.nft_total_supply, data.tag.nft_circ_supply, data.tag.nft_token_uri);
         break;
       case 4:
         statusIcon = iconError;
         statusType = 'Tag Not Active'
-        statusMessage = 'Here is where we can have the error message on this screen and the next action';
+        statusMessage = 'This tag is not currently active.';
         break;
       case 5:
         statusIcon = iconError;
         statusType = 'Tag Not Active'
-        statusMessage = 'Here is where we can have the error message on this screen and the next action';
+        statusMessage = 'This tag is not currently active.';
         break;
       case 6:
         statusIcon = iconError;
         statusType = 'Tag Not Active'
-        statusMessage = 'Here is where we can have the error message on this screen and the next action';
+        statusMessage = 'This tag is not currently active.';
         break;
       case 7:
           statusIcon = iconWarning;
@@ -160,7 +164,7 @@ export class SockHodlerAuth extends HTMLElement {
       case 8:
         statusIcon = iconError;
         statusType = 'Authentication Code Not Valid'
-        statusMessage = 'Here is where we can have the error message on this screen and the next action';
+        statusMessage = 'This authentication code is not valid.  Please contact sockmaster@sockhodler.com for more information.';
         break;
       default:
         statusIcon = iconError;
@@ -180,24 +184,14 @@ export class SockHodlerAuth extends HTMLElement {
 
   injectFont(){
     var css = `
-      @font-face {
-        font-family: 'Lato';
-        font-style: normal;
-        font-weight: 400;
-        font-display: swap;
-        src: url(http://fonts.googleapis.com/css?family=Lato:400,700) format('font-woff2');
-        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-      }
-      @font-face {
-        font-family: 'Lato';
-        font-style: normal;
-        font-weight: 700;
-        font-display: swap;
-        src: url(http://fonts.googleapis.com/css?family=Lato:400,700) format('font-woff2');
-        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-      }
+    @font-face {
+      font-family: 'Lato';
+      font-style: normal;
+      font-display: swap;
+      src: url('https://fonts.googleapis.com/css2?family=Lato:400,700');
+    }
     `;
-// Do we need this? //
+
     if(!document.getElementById('smartSealFont')){
       var head = document.head || document.getElementsByTagName('head')[0],
         style = document.createElement('style');
