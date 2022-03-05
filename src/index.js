@@ -123,7 +123,7 @@ export class SockHodlerAuth extends HTMLElement {
         this.shadowRoot.getElementById('status-message').style.display = 'none';
         this.shadowRoot.getElementById('__status-box').style.display = 'block';
         this.shadowRoot.getElementById('redeem').style.display = 'block';
-        this.setNftAddress(data.tag.chain_id, data.tag.nft_token_id, data.tag.nft_owner_address, data.tag.nft_originator_address, data.tag.nft_total_supply, data.tag.nft_circ_supply, data.tag.nft_token_uri);
+        this.setNftAddress(data.tag.chain_id, data.algo_id, data.tag.algo_owner, data.tag.algo_creator, data.tag.algo_total, data.tag.algo_circulatingsupply, data.tag.algo_url);
         this.setRedemptionUrl(data.tag.nft_redemption_url);
         break;
       case 2:
@@ -131,7 +131,7 @@ export class SockHodlerAuth extends HTMLElement {
         statusType = 'Authenticated and Sealed'
         this.shadowRoot.getElementById('status-message').style.display = 'none';
         this.shadowRoot.getElementById('__status-box').style.display = 'block';
-        this.setNftAddress(data.tag.chain_id, data.tag.nft_token_id, data.tag.nft_owner_address, data.tag.nft_originator_address, data.tag.nft_total_supply, data.tag.nft_circ_supply, data.tag.nft_token_uri);
+        this.setNftAddress(data.tag.chain_id, data.algo_id, data.tag.algo_owner, data.tag.algo_creator, data.tag.algo_total, data.tag.algo_circulatingsupply, data.tag.algo_url);
         this.setRedemptionUrl(data.tag.nft_redemption_url);
         break;
       case 3:
@@ -139,7 +139,7 @@ export class SockHodlerAuth extends HTMLElement {
         statusType = 'Authenticated and Unsealed'
         this.shadowRoot.getElementById('status-message').style.display = 'none';
         this.shadowRoot.getElementById('__status-box').style.display = 'block';
-        this.setNftAddress(data.tag.chain_id, data.tag.nft_token_id, data.tag.nft_owner_address, data.tag.nft_originator_address, data.tag.nft_total_supply, data.tag.nft_circ_supply, data.tag.nft_token_uri);
+        this.setNftAddress(data.tag.chain_id, data.algo_id, data.tag.algo_owner, data.tag.algo_creator, data.tag.algo_total, data.tag.algo_circulatingsupply, data.tag.algo_url);
         break;
       case 4:
         statusIcon = iconError;
